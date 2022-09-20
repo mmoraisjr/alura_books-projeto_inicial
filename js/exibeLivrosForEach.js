@@ -1,10 +1,12 @@
-const containerLivros = document.querySelector("#livros");
+const containerLivros = document.getElementById('livros');
+const elementoValorTotal = document.getElementById('valor_total_livros_disponiveis');
 
-function exibeLivros(listaLivros){
-    containerLivros.innerHTML = "";
-    listaLivros.forEach(livro => {
-        let disponibilidade = livro.quantidade > 0 ? 'livro__imagens' : 'livros__imagens indisponivel'
-        containerLivros.innerHTML += `<div class="livro">
+function exibeLivros(listaLivros) {
+  elementoValorTotal.innerHTML = '';
+  containerLivros.innerHTML = "";
+  listaLivros.forEach(livro => {
+    let disponibilidade = livro.quantidade > 0 ? 'livro__imagens' : 'livros__imagens indisponivel'
+    containerLivros.innerHTML += `<div class="livro">
         <img class="${disponibilidade}" src="${livro.imagem}" alt="${livro.alt}" />
         <h2 class="livro__titulo">
           ${livro.titulo}
@@ -15,5 +17,5 @@ function exibeLivros(listaLivros){
           <span class="tag">${livro.categoria}</span>
         </div>
       </div>`
-    });
+  });
 }
